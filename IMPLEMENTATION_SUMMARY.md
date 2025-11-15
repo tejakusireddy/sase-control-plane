@@ -4,7 +4,7 @@
 
 This is a **production-grade, demo-ready** SASE control plane implementation with all services, frontend, and infrastructure fully implemented.
 
-## 📦 What's Included
+##  What's Included
 
 ### Backend Services (5 microservices)
 
@@ -149,7 +149,7 @@ docker-compose up --build
 -  Database migrations (auto-create tables)
 -  Seed data for immediate demo
 
-##  Next Steps (Optional Enhancements)
+##  Next Steps (Enhancements)
 
 - Add unit tests (Jest)
 - Add integration tests
