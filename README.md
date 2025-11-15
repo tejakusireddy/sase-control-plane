@@ -1,4 +1,4 @@
-# 🛡️ Enterprise SASE Control Plane
+# SASE Control Plane
 
 <div align="center">
 
@@ -15,7 +15,7 @@
 
 ---
 
-## 🎯 Executive Summary
+##  Executive Summary
 
 This is a **production-ready, enterprise-grade SASE (Secure Access Service Edge) Control Plane** that implements a comprehensive Zero-Trust security architecture. Built with modern microservices, real-time analytics, and a sophisticated policy engine, this platform delivers enterprise-level network security with cloud-native scalability.
 
@@ -27,16 +27,16 @@ This is a **production-ready, enterprise-grade SASE (Secure Access Service Edge)
 
 ---
 
-## ✨ Key Features
+##  Key Features
 
-### 🔐 **Zero-Trust Security Architecture**
+###  **Zero-Trust Security Architecture**
 - **Policy-Based Access Control**: Real-time evaluation engine with priority-based rule matching
 - **Multi-Factor Authentication**: JWT-based authentication with role-based access control (RBAC)
 - **Device Trust Scoring**: Dynamic device trust level assessment (HIGH, MEDIUM, LOW, UNTRUSTED)
 - **Geographic Access Control**: Country-based policy enforcement
 - **Resource-Level Permissions**: Granular access control at the resource level
 
-### 📊 **Real-Time Analytics & Monitoring**
+###  **Real-Time Analytics & Monitoring**
 - **Live Dashboard**: Comprehensive security metrics with interactive charts
 - **Request Activity Visualization**: 24-hour activity trends with allowed/denied breakdown
 - **Geographic Analytics**: Top countries by request volume visualization
@@ -44,14 +44,14 @@ This is a **production-ready, enterprise-grade SASE (Secure Access Service Edge)
 - **Policy Performance Metrics**: Policy hit rates and evaluation statistics
 - **Session Management**: Active session tracking and historical analysis
 
-### 🏗️ **Enterprise Architecture**
+###  **Enterprise Architecture**
 - **Microservices Design**: 5 independent, scalable services
 - **API Gateway**: Centralized routing with rate limiting and authentication
 - **Multi-Database Support**: MySQL for transactional data, MongoDB for policies, Redis for caching
 - **Edge Gateway Integration**: Simulated branch gateway with synthetic traffic generation
 - **Docker Orchestration**: Complete containerized deployment with health checks
 
-### 🎨 **Modern Admin Console**
+###  **Modern Admin Console**
 - **Professional UI**: Enterprise-grade Material-UI design with gradient themes
 - **Interactive Charts**: Recharts-powered visualizations (Area, Bar, Pie charts)
 - **Real-Time Updates**: Auto-refreshing dashboards (5-second intervals)
@@ -60,7 +60,7 @@ This is a **production-ready, enterprise-grade SASE (Secure Access Service Edge)
 
 ---
 
-## 🏛️ Architecture
+##  Architecture
 
 ### System Overview
 
@@ -150,7 +150,7 @@ This is a **production-ready, enterprise-grade SASE (Secure Access Service Edge)
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -169,11 +169,11 @@ docker-compose up --build
 ```
 
 **That's it!** The system will:
-- ✅ Build all Docker containers
-- ✅ Initialize databases (MySQL, MongoDB, Redis)
-- ✅ Seed sample data (organizations, users, policies)
-- ✅ Start all microservices
-- ✅ Launch the admin console
+-  Build all Docker containers
+-  Initialize databases (MySQL, MongoDB, Redis)
+-  Seed sample data (organizations, users, policies)
+-  Start all microservices
+-  Launch the admin console
 
 ### Access Points
 
@@ -294,7 +294,7 @@ Content-Type: application/json
 
 ---
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 ### Backend Services
 - **Runtime**: Node.js 20+ with TypeScript
@@ -322,7 +322,7 @@ Content-Type: application/json
 
 ---
 
-## 📊 Dashboard Features
+##  Dashboard Features
 
 ### Real-Time Metrics
 - **Active Sessions**: Live count of active user sessions
@@ -341,29 +341,29 @@ Content-Type: application/json
 
 ---
 
-## 🔒 Security Features
+##  Security Features
 
 ### Authentication & Authorization
-- ✅ **JWT-Based Authentication**: Secure token-based auth with expiration
-- ✅ **Role-Based Access Control (RBAC)**: 5 role levels (SUPER_ADMIN, ORG_ADMIN, SEC_ANALYST, ENGINEER, VIEWER)
-- ✅ **API Key Authentication**: Secure gateway-to-service communication
-- ✅ **Password Security**: bcrypt hashing with salt rounds
+-  **JWT-Based Authentication**: Secure token-based auth with expiration
+-  **Role-Based Access Control (RBAC)**: 5 role levels (SUPER_ADMIN, ORG_ADMIN, SEC_ANALYST, ENGINEER, VIEWER)
+-  **API Key Authentication**: Secure gateway-to-service communication
+-  **Password Security**: bcrypt hashing with salt rounds
 
 ### Network Security
-- ✅ **Rate Limiting**: 100 requests per 15 minutes per IP
-- ✅ **CORS Protection**: Configured CORS policies
-- ✅ **Input Validation**: Request validation and sanitization
-- ✅ **Error Handling**: Secure error messages (no stack traces in production)
+-  **Rate Limiting**: 100 requests per 15 minutes per IP
+-  **CORS Protection**: Configured CORS policies
+-  **Input Validation**: Request validation and sanitization
+-  **Error Handling**: Secure error messages (no stack traces in production)
 
 ### Policy Engine
-- ✅ **Priority-Based Evaluation**: Policies evaluated by priority order
-- ✅ **Multi-Condition Matching**: Role, device, country, resource matching
-- ✅ **Real-Time Evaluation**: Sub-millisecond policy decisions
-- ✅ **Caching**: Redis caching for high-performance lookups
+-  **Priority-Based Evaluation**: Policies evaluated by priority order
+-  **Multi-Condition Matching**: Role, device, country, resource matching
+-  **Real-Time Evaluation**: Sub-millisecond policy decisions
+-  **Caching**: Redis caching for high-performance lookups
 
 ---
 
-## 📈 Performance Characteristics
+##  Performance Characteristics
 
 - **Policy Evaluation**: < 10ms average response time
 - **API Gateway**: Handles 1000+ requests/second
@@ -373,7 +373,7 @@ Content-Type: application/json
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 ```bash
 # Run all tests
@@ -385,7 +385,7 @@ cd backend/auth-service && npm test
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 sase-control-plane/
@@ -429,7 +429,7 @@ sase-control-plane/
 
 ---
 
-## 🎯 Use Cases
+##  Use Cases
 
 ### Enterprise Zero-Trust Implementation
 - Replace traditional VPN with Zero-Trust architecture
@@ -448,20 +448,20 @@ sase-control-plane/
 
 ---
 
-## 🚧 Roadmap
+##  Roadmap
 
-- [ ] **Advanced Analytics**: Machine learning-based threat detection
-- [ ] **Multi-Region Support**: Geographic policy distribution
-- [ ] **Webhook Integration**: Real-time event notifications
-- [ ] **SSO Integration**: SAML/OAuth support
-- [ ] **Advanced Reporting**: Custom report generation
-- [ ] **Policy Templates**: Pre-built policy sets
-- [ ] **API Rate Limiting**: Per-user rate limiting
-- [ ] **GraphQL API**: Alternative API interface
+-  **Advanced Analytics**: Machine learning-based threat detection
+-  **Multi-Region Support**: Geographic policy distribution
+-  **Webhook Integration**: Real-time event notifications
+-  **SSO Integration**: SAML/OAuth support
+-  **Advanced Reporting**: Custom report generation
+-  **Policy Templates**: Pre-built policy sets
+-  **API Rate Limiting**: Per-user rate limiting
+-  **GraphQL API**: Alternative API interface
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
@@ -473,22 +473,22 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ---
 
-## 👨‍💻 Author
+##  Author
 
 **Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your Profile](https://linkedin.com/in/yourprofile)
-- Email: your.email@example.com
+- GitHub: [@tejakusireddy](https://github.com/tejakusireddy)
+- LinkedIn: [Teja Kusireddy](https://www.linkedin.com/in/sai-teja-kusireddy/)
+- Email: teja.kusireddy23@gmail.com
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Built with modern microservices architecture principles
 - Inspired by enterprise Zero-Trust security models
@@ -498,8 +498,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 <div align="center">
 
-**⭐ Star this repo if you find it useful! ⭐**
-
-Made with ❤️ for enterprise security
+** Star this repo if you find it useful! **
 
 </div>
