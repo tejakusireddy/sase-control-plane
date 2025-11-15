@@ -1,0 +1,155 @@
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: sase-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: sase_db
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mongodb:
+    image: mongo:7.0
+    container_name: sase-mongodb
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongodb_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: sase-redis
+    ports:
+      - "6380:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  auth-service:
+    build:
+      context: ./backend
+      dockerfile: auth-service/Dockerfile
+    container_name: sase-auth-service
+    environment:
+      NODE_ENV: production
+      PORT: 4001
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      MYSQL_USER: root
+      MYSQL_PASSWORD: rootpassword
+      MYSQL_DATABASE: sase_db
+      JWT_SECRET: your-super-secret-jwt-key-change-in-production
+    ports:
+      - "4001:4001"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    restart: unless-stopped
+
+  policy-service:
+    build:
+      context: ./backend
+      dockerfile: policy-service/Dockerfile
+    container_name: sase-policy-service
+    environment:
+      NODE_ENV: production
+      PORT: 4002
+      MONGODB_URI: mongodb://mongodb:27017/sase_policies
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    ports:
+      - "4002:4002"
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  session-service:
+    build:
+      context: ./backend
+      dockerfile: session-service/Dockerfile
+    container_name: sase-session-service
+    environment:
+      NODE_ENV: production
+      PORT: 4003
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      MYSQL_USER: root
+      MYSQL_PASSWORD: rootpassword
+      MYSQL_DATABASE: sase_db
+    ports:
+      - "4003:4003"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    restart: unless-stopped
+
+  api-gateway:
+    build:
+      context: ./backend
+      dockerfile: api-gateway/Dockerfile
+    container_name: sase-api-gateway
+    environment:
+      NODE_ENV: production
+      PORT: 4000
+      AUTH_SERVICE_URL: http://auth-service:4001
+      POLICY_SERVICE_URL: http://policy-service:4002
+      SESSION_SERVICE_URL: http://session-service:4003
+      JWT_SECRET: your-super-secret-jwt-key-change-in-production
+    ports:
+      - "4000:4000"
+    depends_on:
+      - auth-service
+      - policy-service
+      - session-service
+    restart: unless-stopped
+
+  edge-gateway:
+    build:
+      context: ./backend
+      dockerfile: edge-gateway/Dockerfile
+    container_name: sase-edge-gateway
+    environment:
+      NODE_ENV: production
+      ORG_ID: acme
+      GATEWAY_ID: acme-sfo-1
+      GATEWAY_API_KEY: acme-gw-key-123
+      API_GATEWAY_URL: http://api-gateway:4000
+    depends_on:
+      - api-gateway
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: sase-frontend
+    environment:
+      VITE_API_URL: http://api-gateway:4000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api-gateway
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
+  mongodb_data:
+

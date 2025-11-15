@@ -1,0 +1,26 @@
+{
+  "name": "sase-control-plane",
+  "version": "1.0.0",
+  "description": "Cloud-native multi-tenant SASE control plane with Zero-Trust policy engine",
+  "private": true,
+  "workspaces": [
+    "backend/*",
+    "backend/shared",
+    "frontend"
+  ],
+  "scripts": {
+    "lint": "eslint . --ext .ts,.tsx",
+    "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.50.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.2.2"
+  }
+}
+

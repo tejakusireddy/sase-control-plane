@@ -1,0 +1,20 @@
+{
+  "name": "@sase/shared",
+  "version": "1.0.0",
+  "description": "Shared types, models, and utilities for SASE control plane",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.2",
+    "@types/node": "^20.8.0",
+    "typescript": "^5.2.2"
+  }
+}
+

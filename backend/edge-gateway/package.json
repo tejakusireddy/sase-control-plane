@@ -1,0 +1,22 @@
+{
+  "name": "@sase/edge-gateway",
+  "version": "1.0.0",
+  "description": "Edge Gateway agent simulator for SASE control plane",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "watch": "tsc --watch"
+  },
+  "dependencies": {
+    "@sase/shared": "*",
+    "axios": "^1.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.2.2"
+  }
+}
+
