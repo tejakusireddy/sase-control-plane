@@ -197,7 +197,7 @@ docker-compose up --build
 
 ---
 
-## 📡 API Documentation
+##  API Documentation
 
 ### Authentication Endpoints
 
