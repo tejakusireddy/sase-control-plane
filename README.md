@@ -161,7 +161,7 @@ This is a **production-ready, enterprise-grade SASE (Secure Access Service Edge)
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/sase-control-plane.git
+git clone https://github.com/tejakusireddy/sase-control-plane.git
 cd sase-control-plane
 
 # Start all services (builds containers automatically)
